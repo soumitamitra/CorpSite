@@ -49,6 +49,6 @@ public class TestWelcome {
 
     @Test
     public void testAbc() {
-        assertEquals(2, 1 + 1);
+        assertEquals(3, 1 + 1);
     }
 }
