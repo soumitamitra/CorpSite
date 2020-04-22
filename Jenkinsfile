@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools { 
-        maven 'Jenkins Maven' 
+        maven 'Maven' 
     }
     stages {
         stage('CI') {
@@ -30,23 +30,6 @@ pipeline {
                     mvn --version
                 '''
                 sh 'mvn package'
-
-                script {
-                    sshPublisher(continueOnError: false, failOnError: true,
-                    publishers: [
-                        sshPublisherDesc(
-                            configName:'CorpSite UAT',
-                            verbose: true,
-                            transfers: [
-                                sshTransfer(
-                                    sourceFiles: 'target/globex-web.war',
-                                    removePrefix: 'target/',
-                                    remoteDirectory: '/opt/tomcat/webapps'
-                                )
-                            ]
-                        )
-                    ])
-                }
             }
         }
         stage('UAT test') {
@@ -90,22 +73,9 @@ pipeline {
             steps {
                 snDevOpsStep()
                 snDevOpsChange()
-                script {
-                    sshPublisher(continueOnError: false, failOnError: true,
-                    publishers: [
-                        sshPublisherDesc(
-                            configName:'CorpSite PROD',
-                            verbose: true,
-                            transfers: [
-                                sshTransfer(
-                                    sourceFiles: 'target/globex-web.war',
-                                    removePrefix: 'target/',
-                                    remoteDirectory: '/opt/tomcat/webapps'
-                                )
-                            ]
-                        )
-                    ])
-                }
+                echo "Deploying to Prod"
+                sleep 10
+                echo "Deployment successful"
             }
         }
     }
