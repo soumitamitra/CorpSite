@@ -49,7 +49,7 @@ pipeline {
                 }
             }
         }
-        stage('deploy') {
+        stage('Prod deploy') {
             steps {
                 snDevOpsStep()
                 snDevOpsChange()
