@@ -8,6 +8,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
+        // test
     }
 
     @Override
