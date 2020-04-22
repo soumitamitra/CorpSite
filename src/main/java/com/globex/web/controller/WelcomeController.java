@@ -17,7 +17,9 @@ public class WelcomeController {
     public String index(Model model) {
         logger.debug("Welcome to globex.com...");
         model.addAttribute("msg", getMessage());
+        cat++;
         return "index";
+        
 
     }
 
