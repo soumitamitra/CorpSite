@@ -49,6 +49,35 @@ public class TestWelcome {
 
     @Test
     public void testAbc() {
-        assertEquals(3, 1 + 1);
+        assertEquals(3, 1 + 1 + 1);
     }
+    
+    @Test 
+    public void testApple() { 
+        Assert.assertEquals("apple","apple");  
+    }
+    
+    @Test 
+    public void testBanana() { 
+        Assert.assertEquals("banana","banana");  
+    }
+    
+    @Test 
+    public void testCherry() { 
+        Assert.assertEquals("cherry","cherry");  
+    }
+    @Test 
+    public void testAlphabets1() { 
+        Assert.assertEquals("abc","abc");  
+    }
+    
+    @Test 
+    public void testAlphabets2() { 
+        Assert.assertEquals("def","def");  
+    }
+    
+    @Test 
+    public void testAlphabets3() { 
+        Assert.assertEquals("hijk","hijk");  
+    }    
 }
